@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+.vite/
+*.log
+
+# Large assets (keep your own locally)
+public/model.ply
+public/model.ksplat
+public/*.mp4
+public/scene.sog
+public/settings.json
