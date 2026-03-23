@@ -48,6 +48,7 @@ Pick based on your deadline, audience, and technical comfort.
 1. Shoot a video walk‑through or take a structured photo set
 2. Keep lighting stable and avoid motion blur
 3. Aim for overlapping angles of the same scene
+4. Vides or Photos should be taken from various distance and angles
 
 ### 2. Generate the 3DGS Scene
 
