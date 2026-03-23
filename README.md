@@ -43,7 +43,7 @@ Pick based on your deadline, audience, and technical comfort.
 
 ## End‑to‑End Pipeline
 
-### 1. Capture
+### 1. Capture and Gather Data
 
 1. Shoot a video walk‑through or take a structured photo set
 2. Keep lighting stable and avoid motion blur
