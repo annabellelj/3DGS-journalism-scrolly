@@ -8,5 +8,6 @@ dist/
 public/model.ply
 public/model.ksplat
 public/*.mp4
+!public/subway_video_scrub.mp4
 public/scene.sog
 public/settings.json
