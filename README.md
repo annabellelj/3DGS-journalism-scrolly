@@ -4,10 +4,9 @@ A template for building scroll‑driven story pages that blend 3D Gaussian Splat
 
 ## What This Template Includes
 
-- A scroll‑scrubbed video section for narrative pacing
-- An embedded 3DGS viewer section (currently using a SuperSplat .html export)
+- A scrollable video section for narrative pacing
+- Two embedded 3DGS viewer sections (currently using a SuperSplat .html export) that give the user the ability to navigate through the scene via keyboards
 - A local development setup using Vite
-- Optional conversion tooling to create lighter `.ksplat` files for faster web delivery
 
 ---
 
@@ -19,11 +18,11 @@ Pick based on your deadline, audience, and technical comfort.
 **Best for:** fast, no‑code web sharing.
 - Upload images or video in the browser
 - Generates a hosted interactive viewer
-- Provides an embed snippet for a web page
+- Provides an embed component for a web page
 - Great for quick newsroom demos, but limited customization and no local control
 
 ### [SuperSplat](https://supersplat.app)
-**Best for:** high‑quality interactive exports and self‑hosting.
+**Best for:** high‑quality interactive exports that allow keyboard navigation/exploration.
 - Exports a complete HTML viewer package
 - Ideal when you want to host the viewer yourself
 
@@ -33,10 +32,10 @@ Pick based on your deadline, audience, and technical comfort.
 - Usually includes guided camera or annotation steps
 - Useful when you want readers to follow a sequence rather than explore freely
 
-### [Nerfstudio](https://docs.nerf.studio)
+### [Nerfstudio-Splatfacto](https://docs.nerf.studio)
 **Best for:** full control and highest‑quality 3DGS output.
 - Train from your own image sets
-- Export `.ply` and other formats
+- Export `.ply` and MP4 video with customized camera path
 - Higher setup cost but full ownership of the pipeline
 
 ---
@@ -52,7 +51,7 @@ Pick based on your deadline, audience, and technical comfort.
 
 ### 2. Generate the 3DGS Scene
 
-Use one of these three workflows depending on your setup.
+Use one of the four workflows depending on your setup.
 
 #### Option A: Server Workflow (Nerfstudio + Conda)
 
@@ -96,23 +95,8 @@ ns-export gaussian-splat \
 
 > Replace `<experiment-name>` and `<timestamp>` with your actual run path.
 
-#### Option B: Colab Workflow
 
-Use the edited shared notebook: **[Colab notebook](#)**
-
-Paste the following into the terminal that opens under the notebook cell:
-```bash
-ns-train nerfacto \
-  --viewer.websocket-port 7007 \
-  --viewer.make-share-url True \
-  nerfstudio-data \
-  --data data/nerfstudio/custom_data \
-  --downscale-factor 4
-```
-
-Once the viewer opens, navigate to your desired view, click **Add keyframe** in the top-right corner, then export to MP4 as above.
-
-#### Option C: Kiriengine (web, no setup required)
+#### Option B: Kiriengine (web, no setup required)
 
 Open the [Kiriengine web app](https://kiriengine.app):
 
@@ -124,20 +108,14 @@ Open the [Kiriengine web app](https://kiriengine.app):
 
 > Note: the embed option is for viewing and sharing only — it does not support adding keyframes.
 
-### 3. Optimize for Web
 
-If you exported a `.ply`, convert it to `.ksplat` to reduce file size and load time.
-```bash
-node scripts/convert-ksplat.mjs public/model.ply public/model.ksplat 1 5
-```
-
-### 4. Build the Story Page
+### 3. Build the Story Page
 
 1. Use a scroll‑scrubbed video for the narrative section
 2. Place the interactive 3D viewer after the narrative
 3. Use clear labels and instructions for the reader
 
-### 5. Run Locally
+### 4. Run Locally
 ```bash
 npm install
 npm run dev -- --host 127.0.0.1 --port 4175
@@ -145,7 +123,7 @@ npm run dev -- --host 127.0.0.1 --port 4175
 
 Then open: `http://127.0.0.1:4175/`
 
-### 6. Publish
+### 5. Publish
 ```bash
 npm run build
 ```
